@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.pageControl = [[CPPageControl alloc] initWithFrame:CGRectMake(0, 80, CGRectGetWidth(self.view.bounds), 300)];
+    self.pageControl = [[CPPageControl alloc] initWithFrame:CGRectMake(0, 80, CGRectGetWidth(self.view.bounds), self.view.frame.size.height)];
     
     _pageControl.pageBarBackgroundColor = [UIColor grayColor];
     _pageControl.pageBarTextColor = [UIColor greenColor];
@@ -31,7 +31,7 @@
     _pageControl.pageBarHeight = 44;
     _pageControl.indicatorHeight = 2;
     _pageControl.indicatorColor = [UIColor blueColor];
-    _pageControl.pageBarOffset_LR = 120;
+    _pageControl.pageBarOffset_LR = 5;
    
     
     
@@ -42,11 +42,11 @@
 
 
 - (NSInteger)numberOfPageInPageControl:(CPPageControl *)pageControl {
-    return 2;
+    return 10;
 }
 
 - (NSString *)pageControl:(CPPageControl *)pageControl titleForIndex:(NSInteger)index {
-    return @"周恩";
+    return @"呵呵";
 }
 
 - (UIView *)pageControl:(CPPageControl *)pageControl itemViewForIndex:(NSInteger)index {
