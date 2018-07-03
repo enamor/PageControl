@@ -22,6 +22,7 @@
 - (UIView *)pageControl:(CPPageControl *)pageControl itemViewForIndex:(NSInteger)index;
 
 @optional
+- (void)pageControl:(CPPageControl *)pageControl willMoveToIndex:(NSInteger)toIndex;
 //从 index -> xxx
 - (void)pageControl:(CPPageControl *)pageControl movedfromIndex:(NSInteger)fromIndex;
 

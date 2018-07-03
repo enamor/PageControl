@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /*
     self.pageControl = [[CPPageControl alloc] initWithFrame:CGRectMake(0, 80, CGRectGetWidth(self.view.bounds), self.view.frame.size.height)];
     
     _pageControl.pageBarBackgroundColor = [UIColor grayColor];
@@ -32,8 +33,10 @@
     _pageControl.indicatorHeight = 2;
     _pageControl.indicatorColor = [UIColor blueColor];
     _pageControl.pageBarOffset_LR = 5;
+     
+     */
    
-    
+
     
     [self.view addSubview:self.pageControl];
     self.pageControl.delegate = self;
@@ -42,11 +45,11 @@
 
 
 - (NSInteger)numberOfPageInPageControl:(CPPageControl *)pageControl {
-    return 10;
+    return 3;
 }
 
 - (NSString *)pageControl:(CPPageControl *)pageControl titleForIndex:(NSInteger)index {
-    return @"呵呵";
+    return @"呵ss呵";
 }
 
 - (UIView *)pageControl:(CPPageControl *)pageControl itemViewForIndex:(NSInteger)index {
@@ -66,6 +69,10 @@
     return view;
 }
 
+
+- (void)pageControl:(CPPageControl *)pageControl willMoveToIndex:(NSInteger)toIndex {
+    
+}
 - (void)pageControl:(CPPageControl *)pageControl movedfromIndex:(NSInteger)fromIndex {
     NSLog(@"fromIndex=%ld  ----------- ",(long)fromIndex);
 }
@@ -75,6 +82,18 @@
         _views = [NSMutableDictionary dictionary];
     }
     return _views;
+}
+
+- (CPPageControl *)pageControl {
+    if (!_pageControl) {
+        _pageControl = [[CPPageControl alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), self.view.frame.size.width - 64 - 60 - 20)];
+        _pageControl.pageBarBackgroundColor = [UIColor whiteColor];
+        _pageControl.pageBarTextFont = [UIFont systemFontOfSize:16];
+        _pageControl.pageBarHeight = 44;
+        _pageControl.indicatorHeight = 2;
+        _pageControl.pageBarOffset_LR = (self.view.frame.size.width - 80 *3 - 20) / 3.0;
+    }
+    return _pageControl;
 }
 
 
